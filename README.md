@@ -5,8 +5,8 @@ A simple neural network implementation in C++. This project is a learning exerci
 ## Features
 
 - `Tensor` class for matrix operations
-- `Linear` layer implementation
-- Forward pass functionality
+- `torch.nn` like modules like `Linear`, `ReLU`
+- Forward and backward pass using optimizer
 
 ## Usage
 
