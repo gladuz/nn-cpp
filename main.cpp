@@ -1,4 +1,6 @@
 #include "nn.h"
+#include "nn_functional.h"
+#include "optim.h"
 #include <iostream>
 using namespace std;
 
@@ -30,13 +32,26 @@ int main() {
     Tensor broadRes = original + broadTens;
     printTensor(broadRes);
 
-    nn::Linear layer1(3, 5);
-    nn::Linear layer2(5, 1);
-    auto out = layer1.forward(original);
-    cout<<out.rows()<<" "<<out.cols()<<endl;
-    out = layer2.forward(out);
-    cout<<out.rows()<<" "<<out.cols()<<endl;
-    printTensor(out);
+
+    nn::Sequential seq;
+    seq.add(std::make_shared<nn::Linear>(3, 5));
+    seq.add(std::make_shared<nn::ReLU>());
+    seq.add(std::make_shared<nn::Linear>(5, 7));
+    seq.add(std::make_shared<nn::ReLU>());
+    seq.add(std::make_shared<nn::Linear>(7, 1));
+
+    auto optimizer = optim::SGD(seq.parameters(), 0.01);
+
+    Tensor corr({2, -2}, 2, 1);
+
+    for(int i=0; i<100; i++){
+        auto out = seq.forward(original);
+        auto [loss, loss_grad] = nn::functional::mse_loss(out, corr);
+        cout<<"Loss at epoch: "<<i<<" is: "<<loss<<endl;
+        seq.backward(loss_grad);
+        optimizer.step();
+    }
+    
     return 0;
 }
 

@@ -1,3 +1,4 @@
+#pragma once
 #include<vector>
 
 class Tensor{
@@ -9,9 +10,11 @@ public:
     double  operator() (size_t row, size_t col) const;
     Tensor& operator= (const Tensor& m);
     Tensor operator+(const Tensor &other) const;
-    void check_sizes(const Tensor &other) const;
-    Tensor &operator+=(const Tensor &other);
+    Tensor operator-(const Tensor &other) const;
     Tensor operator*(const Tensor &other) const;
+    void check_sizes(const Tensor &other) const;
+    Tensor& operator+=(const Tensor &other);
+    Tensor& operator-=(const Tensor &other);
     Tensor& operator*=(const Tensor& other);
     
     // Scalar addition
@@ -19,6 +22,8 @@ public:
     Tensor& operator+=(double scalar);
     Tensor operator*(double scalar) const;
     Tensor& operator*=(double scalar);
+
+    Tensor& square();
 
     Tensor transpose() const;
     size_t rows() const{
@@ -32,10 +37,17 @@ public:
         return data_;
     }
 
-    Tensor matmul(const Tensor& other) const;
+    std::vector<double> grad() const{
+        return grad_;
+    }
 
-    std::vector<double> grad;
+    std::vector<double>& data() { return data_; }
+    std::vector<double>& grad() { return grad_; }
+    void zero_grad();
+
+    Tensor matmul(const Tensor& other) const;
 private:
     size_t rows_, cols_;
     std::vector<double> data_;
+    std::vector<double> grad_;
 };
