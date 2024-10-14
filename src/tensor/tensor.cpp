@@ -1,4 +1,4 @@
-#include "tensor/tensor.h"
+#include "tensor.h"
 #include<stdexcept>
 
 Tensor::Tensor(size_t rows, size_t cols): data_(rows*cols), rows_(rows), cols_(cols){}

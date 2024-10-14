@@ -2,7 +2,7 @@
 #include<vector>
 #include<optional>
 #include<memory>
-#include "tensor/tensor.h"
+#include "tensor.h"
 
 namespace nn{
 

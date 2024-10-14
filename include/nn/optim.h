@@ -1,6 +1,6 @@
 #pragma once
 #include<vector>
-#include "tensor/tensor.h"
+#include "tensor.h"
 #include<memory>
 
 namespace optim{
