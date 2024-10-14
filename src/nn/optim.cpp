@@ -1,4 +1,4 @@
-#include "optim.h"
+#include "nn/optim.h"
 
 namespace optim{
     SGD::SGD(std::vector<std::shared_ptr<Tensor>> parameters, double lr): parameters(parameters), lr(lr){}

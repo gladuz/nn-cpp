@@ -1,6 +1,6 @@
-#include "nn.h"
-#include "nn_functional.h"
-#include "optim.h"
+#include "nn/nn.h"
+#include "nn/nn_functional.h"
+#include "nn/optim.h"
 #include <iostream>
 using namespace std;
 

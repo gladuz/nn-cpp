@@ -1,5 +1,5 @@
 #pragma once
-#include "tensor.h"
+#include "tensor/tensor.h"
 
 
 namespace nn::functional{

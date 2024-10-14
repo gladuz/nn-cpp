@@ -1,4 +1,4 @@
-#include "nn_functional.h"
+#include "nn/nn_functional.h"
 
 namespace nn::functional{
     MSELossOutput mse_loss(const Tensor& predictions, const Tensor& targets){

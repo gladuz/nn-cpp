@@ -1,4 +1,4 @@
-#include "nn.h"
+#include "nn/nn.h"
 #include <random>
 #include<cmath>
 
