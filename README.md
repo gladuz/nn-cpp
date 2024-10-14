@@ -17,12 +17,12 @@ A simple neural network implementation in C++. This project is a learning exerci
 
 2. Compile:
    ```
-   g++ -std=c++17 *.cpp -o neural_net
+   make
    ```
 
 3. Run:
    ```
-   ./neural_net
+   ./nn_project
    ```
 
 ## Verification with toy example
