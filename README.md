@@ -22,10 +22,16 @@ A simple neural network implementation in C++. This project is a learning exerci
 
 3. Run:
    ```
-   ./nn_project
+   ./build/nn_project
    ```
 
+
+
 ## Verification with toy example
+### MNIST example digits printed on terminal
+![MNIST examples printed on std](assets/mnist_ex.png)
+
+### Training code
 ```c++
 Tensor data({1, 2, 3, 4, 5, 6}, 2, 3);  // 2x3 matrix
 Tensor target({2, -2}, 2, 1);

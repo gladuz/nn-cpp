@@ -6,9 +6,11 @@ SRCS = src/main.cpp \
        src/nn/nn.cpp \
        src/nn/nn_functional.cpp \
        src/nn/optim.cpp \
-       src/tensor/tensor.cpp
+       src/tensor/tensor.cpp \
+	   src/data/dataset.cpp \
+	   src/data/dataloader.cpp \
 
-TARGET = nn_project
+TARGET = build/nn_project
 
 $(TARGET): $(SRCS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^
